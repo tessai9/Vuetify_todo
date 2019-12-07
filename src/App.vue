@@ -33,28 +33,36 @@
         text
       >
         <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+        <v-icon></v-icon>
       </v-btn>
     </v-app-bar>
-
     <v-content>
-      <HelloWorld/>
+      <router-view></router-view>
     </v-content>
+    <v-footer>
+      <v-bottom-navigation>
+        <v-btn value="todo">
+          <span>ToDo</span>
+          <v-icon>{{ todo_icon }}</v-icon>
+        </v-btn>
+        <v-btn value="note">
+          <span>Note</span>
+          <v-icon>{{ note_icon }}</v-icon>
+        </v-btn>
+      </v-bottom-navigation>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import { mdiClipboardListOutline, mdiPencilPlusOutline } from '@mdi/js'
 
 export default {
   name: 'App',
 
-  components: {
-    HelloWorld,
-  },
-
   data: () => ({
-    //
+    todo_icon: mdiClipboardListOutline,
+    note_icon: mdiPencilPlusOutline
   }),
 };
 </script>
