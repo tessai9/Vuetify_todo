@@ -1,4 +1,4 @@
-# github_watcher
+# Vuetijy_ToDo
 
 ## Project setup
 ```

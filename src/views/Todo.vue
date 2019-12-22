@@ -1,29 +1,17 @@
 <template>
   <v-container>
-    <v-expansion-panels>
-      <v-expansion-panel
-        v-for="item in items"
-        :key="item.date"
-      >
-        <v-expansion-panel-header>
-          <p class="headline">{{item.date}}</p>
-          <p class="title">{{item.title}}</p>
-        </v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <div class="subtitle-1">{{item.start_time}}〜{{item.end_time}}</div>
-          <div class="body-2">{{item.content}}</div>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-    </v-expansion-panels>
+    <TaskItem v-for="(task, index) in todo_items" :key="index" :item="task"></TaskItem>
   </v-container>
 </template>
 
 <script>
+import TaskItem from '@/components/TaskItem.vue'
+
 export default {
   name: 'ToDo',
   data: function(){
     return {
-      items: [
+      todo_items: [
         {
           'date': '2019/12/04',
           'start_time': '19:00',
@@ -47,6 +35,7 @@ export default {
         }
       ]
     }
-  }
+  },
+  components: { TaskItem }
 }
 </script>

@@ -40,29 +40,56 @@
       <router-view></router-view>
     </v-content>
     <v-footer>
-      <v-bottom-navigation>
-        <v-btn value="todo">
-          <span>ToDo</span>
-          <v-icon>{{ todo_icon }}</v-icon>
-        </v-btn>
-        <v-btn value="note">
-          <span>Note</span>
-          <v-icon>{{ note_icon }}</v-icon>
-        </v-btn>
+      <v-bottom-navigation
+        fixed
+        v-model="current_page"
+        style="align-items: center;"
+      >
+        <!-- ToDo -->
+        <router-link to="/">
+          <v-btn
+            value="toDo"
+          >
+            <span>ToDo</span>
+            <v-icon>{{ todo_icon }}</v-icon>
+          </v-btn>
+        </router-link>
+        <!-- Task Link -->
+        <router-link to="/link">
+          <v-btn
+            value="taskLink"
+          >
+            <span>Task Link</span>
+            <v-icon>{{ link_icon }}</v-icon>
+          </v-btn>
+        </router-link>
+        <!-- Note -->
+        <router-link to="/note">
+          <v-btn
+            value="note"
+          >
+            <span>Note</span>
+            <v-icon>{{ note_icon }}</v-icon>
+          </v-btn>
+        </router-link>
       </v-bottom-navigation>
     </v-footer>
   </v-app>
 </template>
 
 <script>
-import { mdiClipboardListOutline, mdiPencilPlusOutline } from '@mdi/js'
+import { mdiClipboardListOutline, mdiPencilPlusOutline, mdiVectorLink } from '@mdi/js'
 
 export default {
   name: 'App',
 
-  data: () => ({
-    todo_icon: mdiClipboardListOutline,
-    note_icon: mdiPencilPlusOutline
-  }),
+  data() {
+    return {
+      current_page: "",
+      todo_icon: mdiClipboardListOutline,
+      link_icon: mdiVectorLink,
+      note_icon: mdiPencilPlusOutline
+    }
+  },
 };
 </script>
