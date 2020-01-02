@@ -14,7 +14,7 @@ import TaskItem from '@/components/TaskItem.vue'
 
 export default {
   name: 'ToDo',
-  data: function(){
+  data(){
     return {
       todo_items: [
         {
